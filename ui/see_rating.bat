@@ -1,0 +1,1 @@
+pyuic5 see_rating.ui -o ..\pyUI\see_rating.py

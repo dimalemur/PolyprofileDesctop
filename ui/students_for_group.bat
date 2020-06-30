@@ -1,0 +1,1 @@
+pyuic5 students_for_group.ui -o ..\pyUI\students_for_group.py

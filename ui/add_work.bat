@@ -1,0 +1,1 @@
+pyuic5 add_work.ui -o ..\pyUI\add_work.py

@@ -1,0 +1,1 @@
+pyuic5 submit_work.ui -o ..\pyUI\submit_work_ui.py

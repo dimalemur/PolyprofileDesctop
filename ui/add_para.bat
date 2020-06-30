@@ -1,0 +1,1 @@
+pyuic5 add_para.ui -o ..\pyUI\add_para.py

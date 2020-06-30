@@ -1,0 +1,1 @@
+pyuic5 add_group.ui -o ..\pyUI\add_group.py
