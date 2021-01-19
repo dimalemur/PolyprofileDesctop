@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'design.ui'
+# Form implementation generated from reading ui file 'confirm_mail.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.2
 #
@@ -14,14 +14,14 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(450, 700)
+        MainWindow.resize(424, 313)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(450, 700))
-        MainWindow.setMaximumSize(QtCore.QSize(450, 700))
+        MainWindow.setMinimumSize(QtCore.QSize(424, 313))
+        MainWindow.setMaximumSize(QtCore.QSize(424, 313))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -161,48 +161,24 @@ class Ui_MainWindow(object):
         MainWindow.setPalette(palette)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(150, 40, 141, 31))
-        font = QtGui.QFont()
-        font.setFamily("Raleway")
-        font.setPointSize(-1)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(75)
-        self.label_3.setFont(font)
-        self.label_3.setStyleSheet("font-family: Raleway;\n"
-"font-style: normal;\n"
-"font-weight: bold;\n"
-"font-size: 20px;\n"
-"line-height: 21px;\n"
-"color: #000000;")
-        self.label_3.setObjectName("label_3")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox.setGeometry(QtCore.QRect(0, 80, 441, 521))
+        self.groupBox.setGeometry(QtCore.QRect(30, 20, 371, 231))
         self.groupBox.setStyleSheet("border:none")
         self.groupBox.setTitle("")
         self.groupBox.setObjectName("groupBox")
-        self.label_login = QtWidgets.QLabel(self.groupBox)
-        self.label_login.setGeometry(QtCore.QRect(70, 10, 81, 21))
-        font = QtGui.QFont()
-        font.setFamily("Consolas")
-        font.setPointSize(11)
-        self.label_login.setFont(font)
-        self.label_login.setStyleSheet("color:black;")
-        self.label_login.setObjectName("label_login")
-        self.textEdit_2 = QtWidgets.QLineEdit(self.groupBox)
-        self.textEdit_2.setGeometry(QtCore.QRect(70, 120, 281, 41))
-        self.textEdit_2.setFocusPolicy(QtCore.Qt.WheelFocus)
-        self.textEdit_2.setStyleSheet("background: #FFFFFF;\n"
+        self.conf_pass_inp = QtWidgets.QLineEdit(self.groupBox)
+        self.conf_pass_inp.setGeometry(QtCore.QRect(200, 70, 151, 41))
+        self.conf_pass_inp.setFocusPolicy(QtCore.Qt.WheelFocus)
+        self.conf_pass_inp.setStyleSheet("background: #FFFFFF;\n"
 "border: 1px solid #C4C4C4;\n"
 "box-sizing: border-box;\n"
 "border-radius: 10px;\n"
 "padding-left:7px;")
-        self.textEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.textEdit_2.setPlaceholderText("")
-        self.textEdit_2.setObjectName("textEdit_2")
+        self.conf_pass_inp.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.conf_pass_inp.setPlaceholderText("")
+        self.conf_pass_inp.setObjectName("conf_pass_inp")
         self.label_password = QtWidgets.QLabel(self.groupBox)
-        self.label_password.setGeometry(QtCore.QRect(70, 90, 61, 31))
+        self.label_password.setGeometry(QtCore.QRect(10, 70, 191, 31))
         font = QtGui.QFont()
         font.setFamily("Consolas")
         font.setPointSize(11)
@@ -210,7 +186,7 @@ class Ui_MainWindow(object):
         self.label_password.setStyleSheet("color:black;")
         self.label_password.setObjectName("label_password")
         self.submit_button = QtWidgets.QPushButton(self.groupBox)
-        self.submit_button.setGeometry(QtCore.QRect(120, 410, 201, 51))
+        self.submit_button.setGeometry(QtCore.QRect(80, 160, 201, 51))
         font = QtGui.QFont()
         font.setFamily("Consolas")
         font.setPointSize(11)
@@ -223,32 +199,8 @@ class Ui_MainWindow(object):
 "color:white;\n"
 "")
         self.submit_button.setObjectName("submit_button")
-        self.submit_button_2 = QtWidgets.QPushButton(self.groupBox)
-        self.submit_button_2.setGeometry(QtCore.QRect(120, 470, 201, 51))
-        font = QtGui.QFont()
-        font.setFamily("Consolas")
-        font.setPointSize(11)
-        self.submit_button_2.setFont(font)
-        self.submit_button_2.setFocusPolicy(QtCore.Qt.WheelFocus)
-        self.submit_button_2.setStyleSheet("background:#EE3327;\n"
-"border-style: solid;\n"
-"border-radius: 10px;\n"
-"color:white;\n"
-"")
-        self.submit_button_2.setObjectName("submit_button_2")
-        self.login_input = QtWidgets.QLineEdit(self.groupBox)
-        self.login_input.setGeometry(QtCore.QRect(70, 40, 281, 41))
-        self.login_input.setFocusPolicy(QtCore.Qt.WheelFocus)
-        self.login_input.setStyleSheet("background: #FFFFFF;\n"
-"border: 1px solid #C4C4C4;\n"
-"box-sizing: border-box;\n"
-"border-radius: 10px;\n"
-"padding-left:7px;")
-        self.login_input.setEchoMode(QtWidgets.QLineEdit.Normal)
-        self.login_input.setPlaceholderText("")
-        self.login_input.setObjectName("login_input")
         self.check = QtWidgets.QLabel(self.groupBox)
-        self.check.setGeometry(QtCore.QRect(-10, 370, 451, 31))
+        self.check.setGeometry(QtCore.QRect(-10, 130, 381, 31))
         font = QtGui.QFont()
         font.setFamily("Consolas")
         self.check.setFont(font)
@@ -256,81 +208,7 @@ class Ui_MainWindow(object):
         self.check.setAlignment(QtCore.Qt.AlignCenter)
         self.check.setOpenExternalLinks(False)
         self.check.setObjectName("check")
-        self.groupBox_2 = QtWidgets.QGroupBox(self.groupBox)
-        self.groupBox_2.setGeometry(QtCore.QRect(10, 180, 431, 171))
-        self.groupBox_2.setTitle("")
-        self.groupBox_2.setObjectName("groupBox_2")
-        self.capcha_label = QtWidgets.QLabel(self.groupBox_2)
-        self.capcha_label.setGeometry(QtCore.QRect(-10, 20, 451, 31))
-        font = QtGui.QFont()
-        font.setFamily("Consolas")
-        font.setPointSize(11)
-        self.capcha_label.setFont(font)
-        self.capcha_label.setStyleSheet("color:black;")
-        self.capcha_label.setAlignment(QtCore.Qt.AlignCenter)
-        self.capcha_label.setObjectName("capcha_label")
-        self.capcha_input = QtWidgets.QLineEdit(self.groupBox_2)
-        self.capcha_input.setGeometry(QtCore.QRect(120, 60, 161, 41))
-        self.capcha_input.setFocusPolicy(QtCore.Qt.WheelFocus)
-        self.capcha_input.setStyleSheet("background: #FFFFFF;\n"
-"border: 1px solid #C4C4C4;\n"
-"box-sizing: border-box;\n"
-"border-radius: 10px;\n"
-"padding-left:7px;")
-        self.capcha_input.setEchoMode(QtWidgets.QLineEdit.Normal)
-        self.capcha_input.setPlaceholderText("")
-        self.capcha_input.setObjectName("capcha_input")
-        self.capcha = QtWidgets.QLabel(self.groupBox_2)
-        self.capcha.setGeometry(QtCore.QRect(120, 110, 100, 50))
-        self.capcha.setText("")
-        self.capcha.setTextFormat(QtCore.Qt.AutoText)
-        self.capcha.setScaledContents(True)
-        self.capcha.setAlignment(QtCore.Qt.AlignCenter)
-        self.capcha.setObjectName("capcha")
-        self.change_capcha_button = QtWidgets.QPushButton(self.groupBox_2)
-        self.change_capcha_button.setGeometry(QtCore.QRect(250, 120, 31, 31))
-        self.change_capcha_button.setStyleSheet("background: #78ba00;\n"
-"border-radius: 5px;\n"
-"font-family: Raleway;\n"
-"font-style: normal;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"line-height: 18px;\n"
-"color: black;\n"
-"border:1px solid;")
-        self.change_capcha_button.setObjectName("change_capcha_button")
-        self.submit_capcha_button = QtWidgets.QPushButton(self.groupBox_2)
-        self.submit_capcha_button.setGeometry(QtCore.QRect(290, 60, 81, 41))
-        self.submit_capcha_button.setStyleSheet("background: #78ba00;\n"
-"border-radius: 5px;\n"
-"font-family: Raleway;\n"
-"font-style: normal;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"line-height: 18px;\n"
-"color: #FFFFFF;\n"
-"border:1px solid;")
-        self.submit_capcha_button.setObjectName("submit_capcha_button")
-        self.is_true_capcha = QtWidgets.QLabel(self.groupBox_2)
-        self.is_true_capcha.setGeometry(QtCore.QRect(80, 60, 31, 31))
-        font = QtGui.QFont()
-        font.setPointSize(20)
-        self.is_true_capcha.setFont(font)
-        self.is_true_capcha.setText("")
-        self.is_true_capcha.setObjectName("is_true_capcha")
-        self.groupBox_2.raise_()
-        self.label_login.raise_()
-        self.textEdit_2.raise_()
-        self.label_password.raise_()
-        self.submit_button.raise_()
-        self.submit_button_2.raise_()
-        self.login_input.raise_()
-        self.check.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 450, 26))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
@@ -340,12 +218,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Авторизация"))
-        self.label_3.setText(_translate("MainWindow", "Авторизация"))
-        self.label_login.setText(_translate("MainWindow", "Логин:"))
-        self.label_password.setText(_translate("MainWindow", "Пароль:"))
-        self.submit_button.setText(_translate("MainWindow", "Войти"))
-        self.submit_button_2.setText(_translate("MainWindow", "Регистрация"))
-        self.capcha_label.setText(_translate("MainWindow", "Введите слово с картинки"))
-        self.change_capcha_button.setText(_translate("MainWindow", "↺"))
-        self.submit_capcha_button.setText(_translate("MainWindow", "Ввести"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Подтверждение пароля"))
+        self.label_password.setText(_translate("MainWindow", "Код подтвеждения :"))
+        self.submit_button.setText(_translate("MainWindow", "Продолжить"))

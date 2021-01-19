@@ -126,24 +126,25 @@ def add_group_for_teacher(id_group, id_para):
     conn.commit()
 
 
-def add_teacher(teacher_name, teacher_surname, teacher_otchestvo, login, password):
+def add_teacher(teacher_name, teacher_surname, teacher_otchestvo, login, password, mail):
     id = get_id_teacher()
-    cur.execute("insert into teacher(id_teacher,teacher_name,teacher_surname,teacher_otchestvo,login,password) "
+    cur.execute("insert into teacher(id_teacher,teacher_name,teacher_surname,teacher_otchestvo,login,password,email)"
                 "VALUES (" + str(id) + ",'" + teacher_name + "','" + teacher_surname + "','"
-                + teacher_otchestvo + "','" + login + "','" + password + "')")
+                + teacher_otchestvo + "','" + login + "','" + password + "','" + mail + "')")
     conn.commit()
 
 
 def check_teacher(login, password):
-    cur.execute(" select * from teacher where login = '" + str(login) + "' and password = '" + str(password) + "' ")
+    cur.execute("select * from teacher where login = '" + str(login) + "' and password = '" + str(password) + "' ")
     teacher = cur.fetchall()
     if teacher:
         return teacher[0][0]
 
 
 def check_teacher_for_id(id):
-    cur.execute(" select * from teacher where id_teacher = " + str(id))
+    cur.execute("select * from teacher where id_teacher = " + str(id))
     teacher = cur.fetchall()
+    print(id)
     if teacher:
         return teacher
 

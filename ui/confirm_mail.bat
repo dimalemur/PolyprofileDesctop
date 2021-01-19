@@ -1,0 +1,1 @@
+pyuic5 confirm_mail.ui -o ..\pyUI\confirm_mail.py

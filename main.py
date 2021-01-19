@@ -1,9 +1,47 @@
 import sys  # sys нужен для передачи argv в QApplication
-from profile import *
 from PyQt5 import QtWidgets, QtCore, QtGui
 from pyUI import registration_ui, design, add_para, add_group, add_work, profile_ui, submit_work_ui, works_for_lesson, \
-    students_for_group, see_rating, set_rating
+    students_for_group, see_rating, set_rating, confirm_mail
 from bd.connect import *
+from modules import gen_password, mail_agent, capcha
+import random
+import datetime
+
+
+class Confirmpass(QtWidgets.QMainWindow, confirm_mail.Ui_MainWindow):
+    def authorization(self):
+        self.close()
+        self.auth = Authorization()
+        self.auth.show()
+
+    def confirm_pass_fnc(self):
+        input_pass = self.conf_pass_inp.text()
+        current_time = datetime.datetime.now().hour  # текущее время
+        less_time = (current_time - self.send_time.hour)  # прошедшее с момента отправки время(часы)
+        if less_time < 5:  # если прошло меньше 5 часов
+            if str(input_pass) == str(self.confirm_pass):  # если код подтверждения совпадает с отправленым кодом
+                add_teacher(self.name, self.surname, self.otchestvo, self.login, self.password, self.mail)
+                self.authorization()
+            else:
+                self.check.setText('Введён неверный код подтверждения')
+        else:
+            self.check.setText('Время ожидания вышло.')
+
+    def closeEvent(self, event):
+        self.authorization()
+
+    def __init__(self, name, surname, otchestvo, login, password, mail, confirm_pass, now):
+        self.name = name
+        self.surname = surname
+        self.otchestvo = otchestvo
+        self.login = login
+        self.password = password
+        self.mail = mail
+        self.confirm_pass = confirm_pass
+        self.send_time = now
+        super().__init__()
+        self.setupUi(self)
+        self.submit_button.clicked.connect(self.confirm_pass_fnc)
 
 
 class Registration(QtWidgets.QMainWindow, registration_ui.Ui_MainWindow):
@@ -13,28 +51,50 @@ class Registration(QtWidgets.QMainWindow, registration_ui.Ui_MainWindow):
         self.auth.show()
 
     def registration(self):
-        name = self.name_input.toPlainText()
-        surname = self.surname_input.toPlainText()
-        otchestvo = self.otchestvo_input.toPlainText()
-        login = self.login_input.toPlainText()
+        name = self.name_input.text()
+        surname = self.surname_input.text()
+        otchestvo = self.otchestvo_input.text()
+        login = self.login_input.text()
         password = self.password_input.text()
         password_2 = self.password_reinput.text()
-        if not login and name and surname and otchestvo:
+        mail = self.mail_input.text()
+        if login == '' or name == '' or surname == '' or otchestvo == '' or password == '' or mail == '':
             self.check.setText("Заполните все поля")
-        if password == password_2:
-            try:
-                add_teacher(name, surname, otchestvo, login, password)
-                self.authorization()
-            except:
-                self.check.setText("Такой пользователь уже есть")
         else:
-            self.check.setText("Пароли должны совпадать")
+            if password == password_2:
+                try:
+                    check_teacher(login, password)
+                    confirm_pass = random.randint(100000000000, 999999999999)
+                    now = datetime.datetime.now()
+                    now_time = now.isoformat()
+                    mail_agent.send_mail(mail, 'ПОДТВЕРДИТЕ РЕГИСТРАЦИЮ', str(confirm_pass), now_time, name)
+                    self.close()
+                    self.conf_pass = Confirmpass(name, surname, otchestvo, login, password, mail, confirm_pass, now)
+                    self.conf_pass.show()
+                except:
+                    self.check.setText("Такой пользователь уже есть")
+            else:
+                self.check.setText("Пароли должны совпадать")
+
+    def show_pass(self, state):
+        if state == 2:
+            self.password_input.setEchoMode(QtWidgets.QLineEdit.Normal)
+        else:
+            self.password_input.setEchoMode(QtWidgets.QLineEdit.Password)
+
+    def gen_pass(self):
+        self.see_password.setChecked(True)
+        self.show_pass(2)
+        generated_password = gen_password.gen_password()
+        self.password_input.setText(generated_password)
 
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         self.registration_button.clicked.connect(self.registration)
         self.registration_button_2.clicked.connect(self.authorization)
+        self.gen_pass_button.clicked.connect(self.gen_pass)
+        self.see_password.stateChanged.connect(self.show_pass)
 
 
 class Authorization(QtWidgets.QMainWindow, design.Ui_MainWindow):
@@ -47,7 +107,6 @@ class Authorization(QtWidgets.QMainWindow, design.Ui_MainWindow):
         login = self.login_input.text()
         password = self.textEdit_2.text()
         teacher = check_teacher(login, password)
-        print(teacher)
 
         if teacher is not None:
             file = open("auth/now.txt", "w")
@@ -56,12 +115,53 @@ class Authorization(QtWidgets.QMainWindow, design.Ui_MainWindow):
             self.close()
             self.profile = Profile()
             self.profile.show()
+        else:
+            self.check.setText('Неправильный логин или пароль')
+            self.auth_count += 1
+            print(self.auth_count)
+
+            if self.auth_count >= 5:
+                self.login_input.setReadOnly(True)
+                self.textEdit_2.setReadOnly(True)
+                self.submit_capcha_button.setEnabled(True)
+                self.change_capcha_button.setEnabled(True)
+                self.capcha_input.setReadOnly(False)
+                self.groupBox_2.show()
+
+                self.check.setText('Введите капчу, а затем логин и пароль')
+                self.change_capcha()
+
+    def change_capcha(self):
+        get_capcha = capcha.create_capcha()
+        self.capcha_text = get_capcha[0]
+        self.capcha.setPixmap(get_capcha[1])
+        self.is_true_capcha.setText('✘')
+
+    def inp_capcha_event(self):
+        if self.capcha_input.text() == self.capcha_text:
+            self.is_true_capcha.setText('✔')
+            self.login_input.setReadOnly(False)
+            self.textEdit_2.setReadOnly(False)
+            self.submit_capcha_button.setEnabled(False)
+            self.change_capcha_button.setEnabled(False)
+            self.capcha_input.setReadOnly(True)
+            self.check.setText('Введите логин и пароль')
+        else:
+            self.change_capcha()
+            self.is_true_capcha.setText('✘')
+            self.check.setText('Неверно введен текст с картинки')
+            self.login_input.setReadOnly(True)
+            self.textEdit_2.setReadOnly(True)
 
     def __init__(self):
         super().__init__()
+        self.auth_count = 0
         self.setupUi(self)
+        self.groupBox_2.hide()
         self.submit_button_2.clicked.connect(self.reg)
+        self.change_capcha_button.clicked.connect(self.change_capcha)
         self.submit_button.clicked.connect(self.authorization)
+        self.submit_capcha_button.clicked.connect(self.inp_capcha_event)
 
 
 class Profile(QtWidgets.QMainWindow, profile_ui.Ui_MainWindow):

@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>450</width>
-    <height>700</height>
+    <width>424</width>
+    <height>313</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,14 +21,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>450</width>
-    <height>700</height>
+    <width>424</width>
+    <height>313</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>450</width>
-    <height>700</height>
+    <width>424</width>
+    <height>313</height>
    </size>
   </property>
   <property name="palette">
@@ -447,46 +447,16 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>Авторизация</string>
+   <string>Подтверждение пароля</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>40</y>
-      <width>141</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Raleway</family>
-      <pointsize>-1</pointsize>
-      <weight>75</weight>
-      <italic>false</italic>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font-family: Raleway;
-font-style: normal;
-font-weight: bold;
-font-size: 20px;
-line-height: 21px;
-color: #000000;</string>
-    </property>
-    <property name="text">
-     <string>Авторизация</string>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>80</y>
-      <width>441</width>
-      <height>521</height>
+      <x>30</x>
+      <y>20</y>
+      <width>371</width>
+      <height>231</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -495,34 +465,12 @@ color: #000000;</string>
     <property name="title">
      <string/>
     </property>
-    <widget class="QLabel" name="label_login">
+    <widget class="QLineEdit" name="conf_pass_inp">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>10</y>
-       <width>81</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Consolas</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:black;</string>
-     </property>
-     <property name="text">
-      <string>Логин:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="textEdit_2">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>120</y>
-       <width>281</width>
+       <x>200</x>
+       <y>70</y>
+       <width>151</width>
        <height>41</height>
       </rect>
      </property>
@@ -537,7 +485,7 @@ border-radius: 10px;
 padding-left:7px;</string>
      </property>
      <property name="echoMode">
-      <enum>QLineEdit::Password</enum>
+      <enum>QLineEdit::Normal</enum>
      </property>
      <property name="placeholderText">
       <string/>
@@ -546,9 +494,9 @@ padding-left:7px;</string>
     <widget class="QLabel" name="label_password">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>90</y>
-       <width>61</width>
+       <x>10</x>
+       <y>70</y>
+       <width>191</width>
        <height>31</height>
       </rect>
      </property>
@@ -562,14 +510,14 @@ padding-left:7px;</string>
       <string notr="true">color:black;</string>
      </property>
      <property name="text">
-      <string>Пароль:</string>
+      <string>Код подтвеждения :</string>
      </property>
     </widget>
     <widget class="QPushButton" name="submit_button">
      <property name="geometry">
       <rect>
-       <x>120</x>
-       <y>410</y>
+       <x>80</x>
+       <y>160</y>
        <width>201</width>
        <height>51</height>
       </rect>
@@ -594,70 +542,15 @@ color:white;
 </string>
      </property>
      <property name="text">
-      <string>Войти</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="submit_button_2">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>470</y>
-       <width>201</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Consolas</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::WheelFocus</enum>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background:#EE3327;
-border-style: solid;
-border-radius: 10px;
-color:white;
-</string>
-     </property>
-     <property name="text">
-      <string>Регистрация</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="login_input">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>40</y>
-       <width>281</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::WheelFocus</enum>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: #FFFFFF;
-border: 1px solid #C4C4C4;
-box-sizing: border-box;
-border-radius: 10px;
-padding-left:7px;</string>
-     </property>
-     <property name="echoMode">
-      <enum>QLineEdit::Normal</enum>
-     </property>
-     <property name="placeholderText">
-      <string/>
+      <string>Продолжить</string>
      </property>
     </widget>
     <widget class="QLabel" name="check">
      <property name="geometry">
       <rect>
        <x>-10</x>
-       <y>370</y>
-       <width>451</width>
+       <y>130</y>
+       <width>381</width>
        <height>31</height>
       </rect>
      </property>
@@ -676,177 +569,7 @@ padding-left:7px;</string>
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>180</y>
-       <width>431</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string/>
-     </property>
-     <widget class="QLabel" name="capcha_label">
-      <property name="geometry">
-       <rect>
-        <x>-10</x>
-        <y>20</y>
-        <width>451</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Consolas</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color:black;</string>
-      </property>
-      <property name="text">
-       <string>Введите слово с картинки</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="capcha_input">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>60</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="focusPolicy">
-       <enum>Qt::WheelFocus</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: #FFFFFF;
-border: 1px solid #C4C4C4;
-box-sizing: border-box;
-border-radius: 10px;
-padding-left:7px;</string>
-      </property>
-      <property name="echoMode">
-       <enum>QLineEdit::Normal</enum>
-      </property>
-      <property name="placeholderText">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="capcha">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>110</y>
-        <width>100</width>
-        <height>50</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::AutoText</enum>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="change_capcha_button">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>120</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: #78ba00;
-border-radius: 5px;
-font-family: Raleway;
-font-style: normal;
-font-weight: bold;
-font-size: 15px;
-line-height: 18px;
-color: black;
-border:1px solid;</string>
-      </property>
-      <property name="text">
-       <string>↺</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="submit_capcha_button">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>60</y>
-        <width>81</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: #78ba00;
-border-radius: 5px;
-font-family: Raleway;
-font-style: normal;
-font-weight: bold;
-font-size: 15px;
-line-height: 18px;
-color: #FFFFFF;
-border:1px solid;</string>
-      </property>
-      <property name="text">
-       <string>Ввести</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="is_true_capcha">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>60</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </widget>
-    <zorder>groupBox_2</zorder>
-    <zorder>label_login</zorder>
-    <zorder>textEdit_2</zorder>
-    <zorder>label_password</zorder>
-    <zorder>submit_button</zorder>
-    <zorder>submit_button_2</zorder>
-    <zorder>login_input</zorder>
-    <zorder>check</zorder>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>450</width>
-     <height>26</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

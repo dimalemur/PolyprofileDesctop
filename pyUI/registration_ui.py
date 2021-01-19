@@ -13,7 +13,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(361, 732)
+        MainWindow.resize(534, 836)
+        MainWindow.setMinimumSize(QtCore.QSize(534, 836))
+        MainWindow.setMaximumSize(QtCore.QSize(1212120, 1212121))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -151,10 +153,11 @@ class Ui_MainWindow(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
         MainWindow.setPalette(palette)
+        MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.registration_title = QtWidgets.QLabel(self.centralwidget)
-        self.registration_title.setGeometry(QtCore.QRect(120, 10, 151, 41))
+        self.registration_title.setGeometry(QtCore.QRect(0, 10, 531, 41))
         font = QtGui.QFont()
         font.setFamily("Raleway")
         font.setPointSize(-1)
@@ -168,111 +171,60 @@ class Ui_MainWindow(object):
 "font-size: 20px;\n"
 "line-height: 21px;\n"
 "color: #000000;")
+        self.registration_title.setAlignment(QtCore.Qt.AlignCenter)
         self.registration_title.setObjectName("registration_title")
-        self.surname_input = QtWidgets.QTextEdit(self.centralwidget)
-        self.surname_input.setGeometry(QtCore.QRect(40, 90, 281, 41))
-        font = QtGui.QFont()
-        font.setFamily("Consolas")
-        self.surname_input.setFont(font)
-        self.surname_input.setStyleSheet("background: #FFFFFF;\n"
-"border: 1px solid #C4C4C4;\n"
-"box-sizing: border-box;\n"
-"border-radius: 10px;\n"
-"padding-top:7px;\n"
-"padding-left:7px;")
-        self.surname_input.setObjectName("surname_input")
-        self.name_input = QtWidgets.QTextEdit(self.centralwidget)
-        self.name_input.setGeometry(QtCore.QRect(40, 160, 281, 41))
-        font = QtGui.QFont()
-        font.setFamily("Consolas")
-        self.name_input.setFont(font)
-        self.name_input.setStyleSheet("background: #FFFFFF;\n"
-"border: 1px solid #C4C4C4;\n"
-"box-sizing: border-box;\n"
-"border-radius: 10px;\n"
-"padding-top:7px;\n"
-"padding-left:7px;")
-        self.name_input.setObjectName("name_input")
-        self.otchestvo_input = QtWidgets.QTextEdit(self.centralwidget)
-        self.otchestvo_input.setGeometry(QtCore.QRect(40, 230, 281, 41))
-        font = QtGui.QFont()
-        font.setFamily("Consolas")
-        self.otchestvo_input.setFont(font)
-        self.otchestvo_input.setStyleSheet("background: #FFFFFF;\n"
-"border: 1px solid #C4C4C4;\n"
-"box-sizing: border-box;\n"
-"border-radius: 10px;\n"
-"padding-top:7px;\n"
-"padding-left:7px;")
-        self.otchestvo_input.setObjectName("otchestvo_input")
-        self.login_input = QtWidgets.QTextEdit(self.centralwidget)
-        self.login_input.setGeometry(QtCore.QRect(40, 330, 281, 41))
-        font = QtGui.QFont()
-        font.setFamily("Consolas")
-        self.login_input.setFont(font)
-        self.login_input.setStyleSheet("background: #FFFFFF;\n"
-"border: 1px solid #C4C4C4;\n"
-"box-sizing: border-box;\n"
-"border-radius: 10px;\n"
-"padding-top:7px;\n"
-"padding-left:7px;")
-        self.login_input.setObjectName("login_input")
-        self.registration_button = QtWidgets.QPushButton(self.centralwidget)
-        self.registration_button.setGeometry(QtCore.QRect(60, 600, 251, 41))
-        font = QtGui.QFont()
-        font.setFamily("Consolas")
-        font.setPointSize(12)
-        self.registration_button.setFont(font)
-        self.registration_button.setStyleSheet("background:#EE3327;\n"
-"border-style: solid;\n"
-"border-radius: 10px;\n"
-"color:white;\n"
-"")
-        self.registration_button.setObjectName("registration_button")
-        self.surname = QtWidgets.QLabel(self.centralwidget)
-        self.surname.setGeometry(QtCore.QRect(50, 70, 71, 21))
-        font = QtGui.QFont()
-        font.setFamily("Consolas")
-        font.setPointSize(10)
-        self.surname.setFont(font)
-        self.surname.setObjectName("surname")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(50, 140, 61, 21))
+        self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox.setGeometry(QtCore.QRect(0, 60, 541, 761))
+        self.groupBox.setStyleSheet("border:none;")
+        self.groupBox.setTitle("")
+        self.groupBox.setObjectName("groupBox")
+        self.gen_pass_button = QtWidgets.QPushButton(self.groupBox)
+        self.gen_pass_button.setGeometry(QtCore.QRect(330, 410, 201, 41))
+        self.gen_pass_button.setStyleSheet("background: #78ba00;\n"
+"border-radius: 5px;\n"
+"font-family: Raleway;\n"
+"font-style: normal;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"line-height: 18px;\n"
+"color: #FFFFFF;\n"
+"border:1px solid;")
+        self.gen_pass_button.setObjectName("gen_pass_button")
+        self.label_3 = QtWidgets.QLabel(self.groupBox)
+        self.label_3.setGeometry(QtCore.QRect(40, 90, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Consolas")
         font.setPointSize(10)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
-        self.otchestvo = QtWidgets.QLabel(self.centralwidget)
-        self.otchestvo.setGeometry(QtCore.QRect(50, 210, 91, 21))
+        self.registration_button_2 = QtWidgets.QPushButton(self.groupBox)
+        self.registration_button_2.setGeometry(QtCore.QRect(160, 710, 211, 41))
         font = QtGui.QFont()
         font.setFamily("Consolas")
-        font.setPointSize(10)
-        self.otchestvo.setFont(font)
-        self.otchestvo.setObjectName("otchestvo")
-        self.login = QtWidgets.QLabel(self.centralwidget)
-        self.login.setGeometry(QtCore.QRect(40, 300, 131, 21))
-        font = QtGui.QFont()
-        font.setFamily("Consolas")
-        font.setPointSize(10)
-        self.login.setFont(font)
-        self.login.setObjectName("login")
-        self.password = QtWidgets.QLabel(self.centralwidget)
-        self.password.setGeometry(QtCore.QRect(40, 380, 141, 21))
-        font = QtGui.QFont()
-        font.setFamily("Consolas")
-        font.setPointSize(10)
-        self.password.setFont(font)
-        self.password.setObjectName("password")
-        self.repassword = QtWidgets.QLabel(self.centralwidget)
-        self.repassword.setGeometry(QtCore.QRect(40, 460, 151, 21))
+        font.setPointSize(12)
+        self.registration_button_2.setFont(font)
+        self.registration_button_2.setStyleSheet("background:#EE3327;\n"
+"border-style: solid;\n"
+"border-radius: 10px;\n"
+"color:white;\n"
+"")
+        self.registration_button_2.setObjectName("registration_button_2")
+        self.repassword = QtWidgets.QLabel(self.groupBox)
+        self.repassword.setGeometry(QtCore.QRect(40, 470, 151, 21))
         font = QtGui.QFont()
         font.setFamily("Consolas")
         font.setPointSize(10)
         self.repassword.setFont(font)
         self.repassword.setObjectName("repassword")
-        self.check = QtWidgets.QLabel(self.centralwidget)
-        self.check.setGeometry(QtCore.QRect(60, 550, 241, 31))
+        self.otchestvo = QtWidgets.QLabel(self.groupBox)
+        self.otchestvo.setGeometry(QtCore.QRect(40, 160, 91, 21))
+        font = QtGui.QFont()
+        font.setFamily("Consolas")
+        font.setPointSize(10)
+        self.otchestvo.setFont(font)
+        self.otchestvo.setObjectName("otchestvo")
+        self.check = QtWidgets.QLabel(self.groupBox)
+        self.check.setGeometry(QtCore.QRect(0, 600, 541, 31))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -414,21 +366,110 @@ class Ui_MainWindow(object):
         font.setFamily("Consolas")
         self.check.setFont(font)
         self.check.setText("")
+        self.check.setAlignment(QtCore.Qt.AlignCenter)
         self.check.setObjectName("check")
-        self.registration_button_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.registration_button_2.setGeometry(QtCore.QRect(80, 660, 211, 41))
+        self.mail_label = QtWidgets.QLabel(self.groupBox)
+        self.mail_label.setGeometry(QtCore.QRect(40, 230, 151, 21))
+        font = QtGui.QFont()
+        font.setFamily("Consolas")
+        font.setPointSize(10)
+        self.mail_label.setFont(font)
+        self.mail_label.setObjectName("mail_label")
+        self.surname = QtWidgets.QLabel(self.groupBox)
+        self.surname.setGeometry(QtCore.QRect(40, 20, 71, 21))
+        font = QtGui.QFont()
+        font.setFamily("Consolas")
+        font.setPointSize(10)
+        self.surname.setFont(font)
+        self.surname.setObjectName("surname")
+        self.registration_button = QtWidgets.QPushButton(self.groupBox)
+        self.registration_button.setGeometry(QtCore.QRect(140, 640, 251, 41))
         font = QtGui.QFont()
         font.setFamily("Consolas")
         font.setPointSize(12)
-        self.registration_button_2.setFont(font)
-        self.registration_button_2.setStyleSheet("background:#EE3327;\n"
+        self.registration_button.setFont(font)
+        self.registration_button.setStyleSheet("background:#EE3327;\n"
 "border-style: solid;\n"
 "border-radius: 10px;\n"
 "color:white;\n"
 "")
-        self.registration_button_2.setObjectName("registration_button_2")
-        self.password_input = QtWidgets.QLineEdit(self.centralwidget)
+        self.registration_button.setObjectName("registration_button")
+        self.login = QtWidgets.QLabel(self.groupBox)
+        self.login.setGeometry(QtCore.QRect(40, 310, 131, 21))
+        font = QtGui.QFont()
+        font.setFamily("Consolas")
+        font.setPointSize(10)
+        self.login.setFont(font)
+        self.login.setObjectName("login")
+        self.see_password = QtWidgets.QCheckBox(self.groupBox)
+        self.see_password.setGeometry(QtCore.QRect(290, 420, 21, 21))
+        self.see_password.setText("")
+        self.see_password.setObjectName("see_password")
+        self.password = QtWidgets.QLabel(self.groupBox)
+        self.password.setGeometry(QtCore.QRect(40, 390, 141, 21))
+        font = QtGui.QFont()
+        font.setFamily("Consolas")
+        font.setPointSize(10)
+        self.password.setFont(font)
+        self.password.setObjectName("password")
+        self.surname_input = QtWidgets.QLineEdit(self.groupBox)
+        self.surname_input.setGeometry(QtCore.QRect(40, 40, 281, 41))
+        self.surname_input.setFocusPolicy(QtCore.Qt.WheelFocus)
+        self.surname_input.setStyleSheet("background: #FFFFFF;\n"
+"border: 1px solid #C4C4C4;\n"
+"box-sizing: border-box;\n"
+"border-radius: 10px;\n"
+"padding-left:7px;")
+        self.surname_input.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.surname_input.setPlaceholderText("")
+        self.surname_input.setObjectName("surname_input")
+        self.name_input = QtWidgets.QLineEdit(self.groupBox)
+        self.name_input.setGeometry(QtCore.QRect(40, 110, 281, 41))
+        self.name_input.setFocusPolicy(QtCore.Qt.WheelFocus)
+        self.name_input.setStyleSheet("background: #FFFFFF;\n"
+"border: 1px solid #C4C4C4;\n"
+"box-sizing: border-box;\n"
+"border-radius: 10px;\n"
+"padding-left:7px;")
+        self.name_input.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.name_input.setPlaceholderText("")
+        self.name_input.setObjectName("name_input")
+        self.otchestvo_input = QtWidgets.QLineEdit(self.groupBox)
+        self.otchestvo_input.setGeometry(QtCore.QRect(40, 180, 281, 41))
+        self.otchestvo_input.setFocusPolicy(QtCore.Qt.WheelFocus)
+        self.otchestvo_input.setStyleSheet("background: #FFFFFF;\n"
+"border: 1px solid #C4C4C4;\n"
+"box-sizing: border-box;\n"
+"border-radius: 10px;\n"
+"padding-left:7px;")
+        self.otchestvo_input.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.otchestvo_input.setPlaceholderText("")
+        self.otchestvo_input.setObjectName("otchestvo_input")
+        self.mail_input = QtWidgets.QLineEdit(self.groupBox)
+        self.mail_input.setGeometry(QtCore.QRect(40, 250, 281, 41))
+        self.mail_input.setFocusPolicy(QtCore.Qt.WheelFocus)
+        self.mail_input.setStyleSheet("background: #FFFFFF;\n"
+"border: 1px solid #C4C4C4;\n"
+"box-sizing: border-box;\n"
+"border-radius: 10px;\n"
+"padding-left:7px;")
+        self.mail_input.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.mail_input.setPlaceholderText("")
+        self.mail_input.setObjectName("mail_input")
+        self.login_input = QtWidgets.QLineEdit(self.groupBox)
+        self.login_input.setGeometry(QtCore.QRect(40, 330, 281, 41))
+        self.login_input.setFocusPolicy(QtCore.Qt.WheelFocus)
+        self.login_input.setStyleSheet("background: #FFFFFF;\n"
+"border: 1px solid #C4C4C4;\n"
+"box-sizing: border-box;\n"
+"border-radius: 10px;\n"
+"padding-left:7px;")
+        self.login_input.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.login_input.setPlaceholderText("")
+        self.login_input.setObjectName("login_input")
+        self.password_input = QtWidgets.QLineEdit(self.groupBox)
         self.password_input.setGeometry(QtCore.QRect(40, 410, 281, 41))
+        self.password_input.setFocusPolicy(QtCore.Qt.WheelFocus)
         self.password_input.setStyleSheet("background: #FFFFFF;\n"
 "border: 1px solid #C4C4C4;\n"
 "box-sizing: border-box;\n"
@@ -437,8 +478,9 @@ class Ui_MainWindow(object):
         self.password_input.setEchoMode(QtWidgets.QLineEdit.Password)
         self.password_input.setPlaceholderText("")
         self.password_input.setObjectName("password_input")
-        self.password_reinput = QtWidgets.QLineEdit(self.centralwidget)
+        self.password_reinput = QtWidgets.QLineEdit(self.groupBox)
         self.password_reinput.setGeometry(QtCore.QRect(40, 490, 281, 41))
+        self.password_reinput.setFocusPolicy(QtCore.Qt.WheelFocus)
         self.password_reinput.setStyleSheet("background: #FFFFFF;\n"
 "border: 1px solid #C4C4C4;\n"
 "box-sizing: border-box;\n"
@@ -447,6 +489,25 @@ class Ui_MainWindow(object):
         self.password_reinput.setEchoMode(QtWidgets.QLineEdit.Password)
         self.password_reinput.setPlaceholderText("")
         self.password_reinput.setObjectName("password_reinput")
+        self.password_input.raise_()
+        self.gen_pass_button.raise_()
+        self.label_3.raise_()
+        self.registration_button_2.raise_()
+        self.repassword.raise_()
+        self.otchestvo.raise_()
+        self.check.raise_()
+        self.mail_label.raise_()
+        self.surname.raise_()
+        self.registration_button.raise_()
+        self.login.raise_()
+        self.see_password.raise_()
+        self.password.raise_()
+        self.surname_input.raise_()
+        self.name_input.raise_()
+        self.otchestvo_input.raise_()
+        self.mail_input.raise_()
+        self.login_input.raise_()
+        self.password_reinput.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -456,11 +517,13 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Регистрация"))
         self.registration_title.setText(_translate("MainWindow", "Регистрация"))
-        self.registration_button.setText(_translate("MainWindow", "Зарегистрироваться"))
-        self.surname.setText(_translate("MainWindow", "Фамилия"))
+        self.gen_pass_button.setText(_translate("MainWindow", "Сгенерировать пароль"))
         self.label_3.setText(_translate("MainWindow", "Имя"))
+        self.registration_button_2.setText(_translate("MainWindow", "Авторизация"))
+        self.repassword.setText(_translate("MainWindow", "Повторите пароль"))
         self.otchestvo.setText(_translate("MainWindow", "Отчество"))
+        self.mail_label.setText(_translate("MainWindow", "Почта"))
+        self.surname.setText(_translate("MainWindow", "Фамилия"))
+        self.registration_button.setText(_translate("MainWindow", "Зарегистрироваться"))
         self.login.setText(_translate("MainWindow", "Введите логин"))
         self.password.setText(_translate("MainWindow", "Введите пароль"))
-        self.repassword.setText(_translate("MainWindow", "Повторите пароль"))
-        self.registration_button_2.setText(_translate("MainWindow", "Авторизация"))
