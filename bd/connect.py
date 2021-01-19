@@ -388,3 +388,22 @@ def get_rating(id_para, id_sudent, semester):
         return cur.fetchall()[0]
     except:
         return [id_sudent, '']
+
+
+def add_lesson(lesson_name):
+    cur.execute("select id_lesson from lesson")
+    prewiew_index = 0
+    need_index = -1
+    for i in cur.fetchall():
+        current_index = i[0]
+        if current_index - prewiew_index > 1:
+            need_index = prewiew_index + 1
+            break
+        prewiew_index = current_index
+
+    if need_index == -1:
+        need_index = prewiew_index + 1
+
+    cur.execute(
+        "insert into lesson (id_lesson, lesson_name) values (" + str(need_index) + ",'" + str(lesson_name) + "')")
+    conn.commit()

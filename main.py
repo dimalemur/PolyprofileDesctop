@@ -6,6 +6,8 @@ from bd.connect import *
 from modules import gen_password, mail_agent, capcha
 import random
 import datetime
+import math
+import time
 
 
 class Confirmpass(QtWidgets.QMainWindow, confirm_mail.Ui_MainWindow):
@@ -215,31 +217,138 @@ class Profile(QtWidgets.QMainWindow, profile_ui.Ui_MainWindow):
         self.sfg = StudentsForGroup(self.rd, changed_lesson, changed_group, changed_semester)
         self.sfg.show()
 
+    def change_current_pg_num(self, value):
+        if value != "":
+            val = int(value)
+            teacher_lessons = get_lessons(self.rd)
+            self.listWidget.clear()
+            current_show_count = 0
+            current_lessons = []
+
+            if self.show_with_5.isChecked():
+                current_show_count = 5
+            elif self.show_with_10.isChecked():
+                current_show_count = 10
+            elif self.show_with_15.isChecked():
+                current_show_count = 15
+            elif self.show_with_20.isChecked():
+                current_show_count = 20
+
+            for lesson in range(current_show_count * (val - 1),
+                                current_show_count * (val - 1) + current_show_count):
+                try:
+                    current_lessons.append(teacher_lessons[lesson])
+                except:
+                    break
+            self.listWidget.clear()
+
+            for (lesson, index) in zip(current_lessons, range(0, len(current_lessons))):
+                if int(index % 2) == 0:
+                    i = QtWidgets.QListWidgetItem('%s' % lesson)
+                    i.setBackground(QtGui.QColor('#808080'))
+                    self.listWidget.addItem(i)  # Заполнение вкладки предметов
+                else:
+                    i = QtWidgets.QListWidgetItem('%s' % lesson)
+                    i.setBackground(QtGui.QColor('#fff'))
+                    self.listWidget.addItem(i)  # Заполнение вкладки предметов
+
+    def change_next_pg_num(self):
+        val = int(self.change_pg_box.currentText()) + 1
+        if self.change_pg_box.count() >= val:
+            index = int(self.change_pg_box.currentIndex()) + 1
+            self.change_pg_box.setCurrentIndex(index)
+            self.change_current_pg_num(val)
+
+    def change_prew_pg_num(self):
+        val = int(self.change_pg_box.currentText()) - 1
+        if val > 0:
+            index = int(self.change_pg_box.currentIndex()) - 1
+            self.change_pg_box.setCurrentIndex(index)
+            self.change_current_pg_num(val)
+
+    def filing_tables(self):
+        teacher_lessons = get_lessons(self.rd)
+        lesson_count = len(teacher_lessons)
+        current_show_count = 0
+        tab_count_mas = []
+        current_lessons = []
+
+        if self.show_with_5.isChecked():
+            current_show_count = 5
+        elif self.show_with_10.isChecked():
+            current_show_count = 10
+        elif self.show_with_15.isChecked():
+            current_show_count = 15
+        elif self.show_with_20.isChecked():
+            current_show_count = 20
+
+        tab_count = math.ceil(lesson_count / current_show_count)
+
+        for i in range(1, tab_count + 1):
+            tab_count_mas.append(str(i))
+
+        self.change_pg_box.clear()
+        self.change_pg_box.addItems(tab_count_mas)
+
+        for lesson in range(0, current_show_count):
+            current_lessons.append(teacher_lessons[lesson])
+        self.listWidget.clear()
+
+        for (lesson, index) in zip(current_lessons, range(0, len(current_lessons))):
+            if int(index % 2) == 0:
+                i = QtWidgets.QListWidgetItem('%s' % lesson)
+                i.setBackground(QtGui.QColor('#808080'))
+                self.listWidget.addItem(i)  # Заполнение вкладки предметов
+            else:
+                i = QtWidgets.QListWidgetItem('%s' % lesson)
+                i.setBackground(QtGui.QColor('#fff'))
+                self.listWidget.addItem(i)  # Заполнение вкладки предметов
+
     def __init__(self, tab=0):
         super().__init__()
+        # ФИО профиля
         f = open("auth/now.txt", "r")
         self.rd = f.read()
         FIO = check_teacher_for_id(self.rd)
-        full_name = str(FIO[0][2]) + " " + str(FIO[0][1]) + " " + str(FIO[0][3])
+        full_name = str(FIO[0][2]) + " " + str(FIO[0][1]) + " " + str(FIO[0][3])  # имя преподавателя
         f.close()
         _translate = QtCore.QCoreApplication.translate
         self.setupUi(self)
-        self.label.setText(full_name)
-        self.listWidget.addItems(get_lessons(self.rd))
-        self.tabWidget.setCurrentIndex(tab)
+        self.label.setText(full_name)  # установка именя преподавателя в заголовок
+
+        self.tabWidget.setCurrentIndex(tab)  # установка вкладки
 
         ololo = 0
         for i in get_teacher_groups(self.rd):
-            QtWidgets.QTreeWidgetItem(self.listWidget_2)
+            QtWidgets.QTreeWidgetItem(self.listWidget_2)  # заполнение вкладки пары
             self.listWidget_2.topLevelItem(ololo).setText(0, str(i[0]))
             self.listWidget_2.topLevelItem(ololo).setText(2, str(i[2]))
             self.listWidget_2.topLevelItem(ololo).setText(1, str(i[1]))
 
-            QtWidgets.QTreeWidgetItem(self.para_table)
+            QtWidgets.QTreeWidgetItem(self.para_table)  # заполнение вкладки оценки
             self.para_table.topLevelItem(ololo).setText(0, str(i[0]))
             self.para_table.topLevelItem(ololo).setText(2, str(i[2]))
             self.para_table.topLevelItem(ololo).setText(1, str(i[1]))
             ololo += 1
+
+        tab_count_mas = []
+        current_lessons = []
+        teacher_lessons = get_lessons(self.rd)
+        tab_count = math.ceil(len(teacher_lessons) / 5)
+
+        for i in range(1, tab_count + 1):
+            tab_count_mas.append(str(i))
+        self.change_pg_box.addItems(tab_count_mas)
+
+        for lesson in range(0, 5):
+            if int(lesson % 2) == 0:
+                i = QtWidgets.QListWidgetItem('%s' % teacher_lessons[lesson])
+                i.setBackground(QtGui.QColor('#808080'))
+                self.listWidget.addItem(i)  # Заполнение вкладки предметов
+            else:
+                i = QtWidgets.QListWidgetItem('%s' % teacher_lessons[lesson])
+                i.setBackground(QtGui.QColor('#fff'))
+                self.listWidget.addItem(i)  # Заполнение вкладки предметов
 
         self.add_para_button.clicked.connect(self.add_para)
         self.add_group_button.clicked.connect(self.add_group)
@@ -250,6 +359,13 @@ class Profile(QtWidgets.QMainWindow, profile_ui.Ui_MainWindow):
         self.listWidget.doubleClicked.connect(self.show_all_labs)
         self.para_table.doubleClicked.connect(self.see_rating)
         self.listWidget_2.doubleClicked.connect(self.std_for_gruops)
+        self.show_with_5.clicked.connect(self.filing_tables)
+        self.show_with_10.clicked.connect(self.filing_tables)
+        self.show_with_15.clicked.connect(self.filing_tables)
+        self.show_with_20.clicked.connect(self.filing_tables)
+        self.change_pg_box.currentTextChanged.connect(self.change_current_pg_num)
+        self.next_pg_button.clicked.connect(self.change_next_pg_num)
+        self.prew_pg_button.clicked.connect(self.change_prew_pg_num)
 
 
 class AddGroup(QtWidgets.QMainWindow, add_group.Ui_MainWindow):

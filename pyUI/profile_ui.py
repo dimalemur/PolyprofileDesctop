@@ -14,14 +14,14 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(660, 390)
+        MainWindow.resize(860, 600)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(660, 390))
-        MainWindow.setMaximumSize(QtCore.QSize(660, 390))
+        MainWindow.setMinimumSize(QtCore.QSize(860, 600))
+        MainWindow.setMaximumSize(QtCore.QSize(999, 999))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -167,7 +167,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.log_out_button = QtWidgets.QPushButton(self.centralwidget)
-        self.log_out_button.setGeometry(QtCore.QRect(560, 10, 91, 31))
+        self.log_out_button.setGeometry(QtCore.QRect(740, 10, 91, 31))
         font = QtGui.QFont()
         font.setFamily("Consolas")
         font.setPointSize(8)
@@ -182,7 +182,7 @@ class Ui_MainWindow(object):
         self.log_out_button.setDefault(False)
         self.log_out_button.setObjectName("log_out_button")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(30, 20, 501, 41))
+        self.label.setGeometry(QtCore.QRect(30, 20, 671, 41))
         font = QtGui.QFont()
         font.setFamily("Raleway")
         font.setPointSize(-1)
@@ -199,7 +199,7 @@ class Ui_MainWindow(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(10, 70, 651, 301))
+        self.tabWidget.setGeometry(QtCore.QRect(30, 90, 801, 501))
         font = QtGui.QFont()
         font.setFamily("Raleway")
         font.setPointSize(-1)
@@ -228,7 +228,7 @@ class Ui_MainWindow(object):
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
         self.add_para_button = QtWidgets.QPushButton(self.tab)
-        self.add_para_button.setGeometry(QtCore.QRect(480, 60, 151, 51))
+        self.add_para_button.setGeometry(QtCore.QRect(630, 130, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Raleway")
         font.setPointSize(-1)
@@ -250,7 +250,7 @@ class Ui_MainWindow(object):
 "")
         self.add_para_button.setObjectName("add_para_button")
         self.listWidget = QtWidgets.QListWidget(self.tab)
-        self.listWidget.setGeometry(QtCore.QRect(40, 50, 421, 191))
+        self.listWidget.setGeometry(QtCore.QRect(100, 100, 401, 311))
         font = QtGui.QFont()
         font.setFamily("Raleway")
         font.setPointSize(-1)
@@ -267,7 +267,7 @@ class Ui_MainWindow(object):
         self.listWidget.setWordWrap(True)
         self.listWidget.setObjectName("listWidget")
         self.label_2 = QtWidgets.QLabel(self.tab)
-        self.label_2.setGeometry(QtCore.QRect(190, 10, 131, 31))
+        self.label_2.setGeometry(QtCore.QRect(260, 10, 131, 31))
         font = QtGui.QFont()
         font.setFamily("Raleway")
         font.setPointSize(-1)
@@ -284,7 +284,7 @@ class Ui_MainWindow(object):
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
         self.add_work_button = QtWidgets.QPushButton(self.tab)
-        self.add_work_button.setGeometry(QtCore.QRect(480, 140, 151, 81))
+        self.add_work_button.setGeometry(QtCore.QRect(630, 220, 151, 81))
         font = QtGui.QFont()
         font.setFamily("Raleway")
         font.setPointSize(-1)
@@ -306,6 +306,95 @@ class Ui_MainWindow(object):
 "")
         self.add_work_button.setDefault(False)
         self.add_work_button.setObjectName("add_work_button")
+        self.groupBox = QtWidgets.QGroupBox(self.tab)
+        self.groupBox.setGeometry(QtCore.QRect(-10, 40, 821, 431))
+        self.groupBox.setStyleSheet("")
+        self.groupBox.setTitle("")
+        self.groupBox.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.groupBox.setObjectName("groupBox")
+        self.show_with_5 = QtWidgets.QRadioButton(self.groupBox)
+        self.show_with_5.setGeometry(QtCore.QRect(150, 10, 61, 21))
+        self.show_with_5.setChecked(True)
+        self.show_with_5.setObjectName("show_with_5")
+        self.label_5 = QtWidgets.QLabel(self.groupBox)
+        self.label_5.setGeometry(QtCore.QRect(10, 10, 131, 21))
+        font = QtGui.QFont()
+        font.setFamily("Raleway")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.label_5.setFont(font)
+        self.label_5.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
+        self.label_5.setStyleSheet("font-family: Raleway;\n"
+"font-style: normal;\n"
+"font-weight: bold;\n"
+"font-size:17px;\n"
+"")
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setObjectName("label_5")
+        self.show_with_10 = QtWidgets.QRadioButton(self.groupBox)
+        self.show_with_10.setGeometry(QtCore.QRect(220, 10, 61, 20))
+        self.show_with_10.setObjectName("show_with_10")
+        self.show_with_15 = QtWidgets.QRadioButton(self.groupBox)
+        self.show_with_15.setGeometry(QtCore.QRect(300, 10, 61, 20))
+        self.show_with_15.setObjectName("show_with_15")
+        self.show_with_20 = QtWidgets.QRadioButton(self.groupBox)
+        self.show_with_20.setGeometry(QtCore.QRect(380, 10, 61, 20))
+        self.show_with_20.setObjectName("show_with_20")
+        self.change_pg_box = QtWidgets.QComboBox(self.groupBox)
+        self.change_pg_box.setGeometry(QtCore.QRect(270, 390, 141, 31))
+        self.change_pg_box.setStyleSheet("background: #FFFFFF;\n"
+"border: 0.8px solid #F79329;\n"
+"box-sizing: border-box;\n"
+"box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n"
+"border-radius: 5px;")
+        self.change_pg_box.setObjectName("change_pg_box")
+        self.next_pg_button = QtWidgets.QPushButton(self.tab)
+        self.next_pg_button.setGeometry(QtCore.QRect(510, 200, 51, 61))
+        font = QtGui.QFont()
+        font.setFamily("Raleway")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.next_pg_button.setFont(font)
+        self.next_pg_button.setStyleSheet("background: #78ba00;\n"
+"border-radius: 5px;\n"
+"font-family: Raleway;\n"
+"font-style: normal;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"line-height: 18px;\n"
+"color: #FFFFFF;\n"
+"border:1px solid;")
+        self.next_pg_button.setObjectName("next_pg_button")
+        self.prew_pg_button = QtWidgets.QPushButton(self.tab)
+        self.prew_pg_button.setGeometry(QtCore.QRect(30, 200, 51, 61))
+        font = QtGui.QFont()
+        font.setFamily("Raleway")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.prew_pg_button.setFont(font)
+        self.prew_pg_button.setStyleSheet("background: #78ba00;\n"
+"border-radius: 5px;\n"
+"font-family: Raleway;\n"
+"font-style: normal;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"line-height: 18px;\n"
+"color: #FFFFFF;\n"
+"border:1px solid;")
+        self.prew_pg_button.setObjectName("prew_pg_button")
+        self.groupBox.raise_()
+        self.add_para_button.raise_()
+        self.listWidget.raise_()
+        self.label_2.raise_()
+        self.add_work_button.raise_()
+        self.next_pg_button.raise_()
+        self.prew_pg_button.raise_()
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
@@ -655,7 +744,7 @@ class Ui_MainWindow(object):
         self.tab_3 = QtWidgets.QWidget()
         self.tab_3.setObjectName("tab_3")
         self.set_rating = QtWidgets.QPushButton(self.tab_3)
-        self.set_rating.setGeometry(QtCore.QRect(490, 140, 151, 51))
+        self.set_rating.setGeometry(QtCore.QRect(600, 210, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Raleway")
         font.setPointSize(-1)
@@ -677,7 +766,7 @@ class Ui_MainWindow(object):
 "")
         self.set_rating.setObjectName("set_rating")
         self.para_table = QtWidgets.QTreeWidget(self.tab_3)
-        self.para_table.setGeometry(QtCore.QRect(30, 50, 431, 192))
+        self.para_table.setGeometry(QtCore.QRect(50, 90, 491, 311))
         self.para_table.setStyleSheet("background:white;\n"
 "border:1px solid black;\n"
 "font-size:13px;")
@@ -705,7 +794,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -718,6 +807,13 @@ class Ui_MainWindow(object):
         self.add_work_button.setText(_translate("MainWindow", "Добавить \n"
 " лабораторную \n"
 " работу"))
+        self.show_with_5.setText(_translate("MainWindow", "5"))
+        self.label_5.setText(_translate("MainWindow", "Показать по:"))
+        self.show_with_10.setText(_translate("MainWindow", "10"))
+        self.show_with_15.setText(_translate("MainWindow", "15"))
+        self.show_with_20.setText(_translate("MainWindow", "20"))
+        self.next_pg_button.setText(_translate("MainWindow", "⇒"))
+        self.prew_pg_button.setText(_translate("MainWindow", "⇐"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Предметы"))
         self.add_group_button.setText(_translate("MainWindow", "Добавить группу"))
         self.label_3.setText(_translate("MainWindow", "Работы:"))
